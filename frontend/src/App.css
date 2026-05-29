@@ -105,3 +105,22 @@ button:disabled {
   color: #1565c0;
   font-weight: bold;
 }
+.result-card button {
+  margin-top: 20px;
+}
+
+.result-card {
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

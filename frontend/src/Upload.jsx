@@ -6,7 +6,6 @@ function Upload({ onPredict }) {
   const handleFile = (e) => {
     const file = e.target.files[0];
     setImage(file);
-    onPredict(null);
   };
 
   return (
@@ -21,11 +20,14 @@ function Upload({ onPredict }) {
         <img
           src={URL.createObjectURL(image)}
           alt="preview"
-          width="300"
         />
       )}
 
-      <button onClick={() => onPredict(image)}>
+      <br />
+
+      <button
+        onClick={() => onPredict(image)}
+      >
         Detect Pneumonia
       </button>
     </div>

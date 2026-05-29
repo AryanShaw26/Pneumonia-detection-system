@@ -6,10 +6,12 @@ import "./App.css";
 function App() {
   const [result, setResult] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [uploadedImage, setUploadedImage] = useState(null);
 
   const handlePredict = async (image) => {
     if (!image) return;
 
+    setUploadedImage(image);
     setLoading(true);
 
     const formData = new FormData();
@@ -25,9 +27,11 @@ function App() {
       );
 
       const data = await response.json();
+
       setResult(data);
     } catch (error) {
       console.error(error);
+      alert("Prediction failed");
     }
 
     setLoading(false);
@@ -50,7 +54,10 @@ function App() {
         </p>
       )}
 
-      <Result result={result} />
+      <Result
+        result={result}
+        uploadedImage={uploadedImage}
+      />
     </div>
   );
 }
